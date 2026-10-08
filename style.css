@@ -63,3 +63,18 @@ form button {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
 }
+
+.projects {
+  gap: 1em;
+}
+
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 1em;
+}
+
+.projects h2 {
+  margin: 0;
+}
