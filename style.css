@@ -87,3 +87,27 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
+
+/* ===== Resume page ===== */
+
+/* Section titles (Education, Professional Experience) */
+section h2 {
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 0.2em;
+  margin-top: 1.5em;
+}
+
+/* Space between each school or job */
+section article {
+  margin-block: 1.5em;
+}
+
+section article h3 {
+  margin: 0;
+}
+
+/* Job titles and dates: smaller gray text */
+section article header p {
+  margin: 0;
+  color: dimgray;
+}
