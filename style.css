@@ -113,3 +113,15 @@ section article header p {
   margin: 0;
   color: dimgray;
 }
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+}
+
+select {
+  font: inherit;
+}
