@@ -1,1 +1,1 @@
-Lab 1 for DSC 106
+DSC 106 portfolio website
