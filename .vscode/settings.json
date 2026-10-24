@@ -1,0 +1,13 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/pset2.aux": true,
+        "**/pset2.log": true,
+        "**/pset2.gz": true,
+        "**/pset2.out": true
+    }
+}

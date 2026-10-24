@@ -125,3 +125,23 @@ section article header p {
 select {
   font: inherit;
 }
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#profile-stats dt {
+  grid-row: 1;
+}
+
+#profile-stats dd {
+  grid-row: 2;
+  margin: 0;
+}
+
+.projects img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: contain;
+}
