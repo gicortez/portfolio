@@ -200,3 +200,17 @@ svg {
   font: inherit;
   box-sizing: border-box;
 }
+
+path {
+  fill: var(--color);
+  cursor: pointer;
+  transition: 300ms;
+}
+
+svg:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}

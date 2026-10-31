@@ -9,14 +9,14 @@ const projectsTitle = document.querySelector('.projects-title');
 projectsTitle.textContent = `${projects.length} Projects`;
 
 // Pie chart
+let selectedIndex = -1;
+
 function renderPieChart(projectsGiven) {
-  // clear old paths and legend so they don't stack up
   let svg = d3.select('svg');
   svg.selectAll('path').remove();
   let legend = d3.select('.legend');
   legend.selectAll('li').remove();
 
-  // count projects per year
   let rolledData = d3.rollups(projectsGiven, (v) => v.length, (d) => d.year);
   let data = rolledData.map(([year, count]) => ({ value: count, label: year }));
 
@@ -26,7 +26,30 @@ function renderPieChart(projectsGiven) {
   let arcData = sliceGenerator(data);
 
   arcData.forEach((d, i) => {
-    svg.append('path').attr('d', arcGenerator(d)).attr('fill', colors(i));
+    svg
+      .append('path')
+      .attr('d', arcGenerator(d))
+      .attr('style', `--color:${colors(i)}`)
+      .on('click', () => {
+        selectedIndex = selectedIndex === i ? -1 : i;
+
+        svg
+          .selectAll('path')
+          .attr('class', (_, idx) => (idx === selectedIndex ? 'selected' : ''));
+        legend
+          .selectAll('li')
+          .attr('class', (_, idx) =>
+            idx === selectedIndex ? 'legend-item selected' : 'legend-item'
+          );
+
+        if (selectedIndex === -1) {
+          renderProjects(projects, projectsContainer, 'h2');
+        } else {
+          let selectedYear = data[selectedIndex].label;
+          let filtered = projects.filter((p) => p.year === selectedYear);
+          renderProjects(filtered, projectsContainer, 'h2');
+        }
+      });
   });
 
   data.forEach((d, i) => {
@@ -45,6 +68,7 @@ let query = '';
 let searchInput = document.querySelector('.searchBar');
 
 searchInput.addEventListener('input', (event) => {
+  selectedIndex = -1;
   query = event.target.value;
 
   let filteredProjects = projects.filter((project) => {
