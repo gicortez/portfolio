@@ -192,3 +192,11 @@ svg {
   background-color: var(--color);
   border-radius: 50%;
 }
+
+.searchBar {
+  width: 100%;
+  padding: 0.5em;
+  margin-block: 1em;
+  font: inherit;
+  box-sizing: border-box;
+}
