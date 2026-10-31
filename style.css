@@ -145,3 +145,8 @@ select {
   aspect-ratio: 2 / 1;
   object-fit: contain;
 }
+
+.project-year {
+  font-family: Baskerville, serif;
+  font-variant-numeric: oldstyle-nums;
+}
